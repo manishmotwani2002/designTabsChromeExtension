@@ -2,6 +2,8 @@ import * as React from "react";
 import "./index.css";
 
 import { getBackground } from "../../utils/background/apicall";
+import Quote from "../quotes";
+import Weather from "../weather";
 
 function Base() {
   const defaultImage = "";
@@ -10,7 +12,6 @@ function Base() {
 
   React.useEffect(async () => {
     const response = await getBackground();
-    console.log(response.urls.full);
     setBackgroundImage(response.urls.full);
   }, []);
 
@@ -21,7 +22,14 @@ function Base() {
           backgroundImage: `url(${backgroundImage})`,
         }}
         className="bg"
-      ></div>
+      >
+        <div>
+          <Quote />
+        </div>
+        <div>
+          <Weather />
+        </div>
+      </div>
     </div>
   );
 }
