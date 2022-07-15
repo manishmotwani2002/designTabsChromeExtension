@@ -4,6 +4,7 @@ import "./index.css";
 import { getBackground } from "../../utils/background/apicall";
 import Quote from "../quotes";
 import Weather from "../weather";
+import Todos from "../todo";
 
 function Base() {
   const defaultImage = "";
@@ -28,6 +29,9 @@ function Base() {
         </div>
         <div>
           <Weather />
+        </div>
+        <div>
+          <Todos />
         </div>
       </div>
     </div>
