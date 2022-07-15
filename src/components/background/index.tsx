@@ -5,6 +5,7 @@ import { getBackground } from "../../utils/background/apicall";
 import Quote from "../quotes";
 import Weather from "../weather";
 import Todos from "../todo";
+import BookmarksList from "../bookmark";
 
 function Base() {
   const defaultImage = "";
@@ -17,14 +18,25 @@ function Base() {
   }, []);
 
   return (
-    <div>
-      <div
-        style={{
-          backgroundImage: `url(${backgroundImage})`,
-        }}
-        className="bg"
-      >
+    <div
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+      }}
+      className="bg"
+    >
+      <div className="central-container">
+        <div>Current Time</div>
+        <div>Current Date</div>
         <div>
+          <h1>Your Short Term Goals</h1>
+          <input type="text" placeholder="enter your goal here" />
+        </div>
+      </div>
+
+      <div>
+        <BookmarksList />
+      </div>
+      {/* <div>
           <Quote />
         </div>
         <div>
@@ -32,8 +44,7 @@ function Base() {
         </div>
         <div>
           <Todos />
-        </div>
-      </div>
+        </div> */}
     </div>
   );
 }
