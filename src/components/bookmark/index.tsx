@@ -3,66 +3,54 @@ import BookMark from "./BookMark";
 import BookMarkForm from "./BookMarkForm";
 
 function BookmarksList() {
-  const [todos, setTodos] = useState(
+  const [bookmarks, setBookmarks] = useState(
     localStorage.getItem("bookmarks")
       ? JSON.parse(localStorage.getItem("bookmarks") || "{}")
       : []
   );
 
-  const addTodo = (todo) => {
-    let newTodos;
+  const addBookmark = (bookmark) => {
+    let newBookmarks;
     if (localStorage.getItem("bookmarks")) {
-      newTodos = [
-        todo,
+      newBookmarks = [
+        bookmark,
         ...JSON.parse(localStorage.getItem("bookmarks") || "{}"),
       ];
-    } else newTodos = [todo, ...todos];
+    } else newBookmarks = [bookmark, ...bookmarks];
 
-    setTodos(newTodos);
-    console.log(...todos);
-    //WORKING
-    localStorage.setItem("bookmarks", JSON.stringify(newTodos));
-    console.log(newTodos);
+    setBookmarks(newBookmarks);
+    localStorage.setItem("bookmarks", JSON.stringify(newBookmarks));
   };
 
-  const updateTodo = (todoId, newValue) => {
-    console.log("new value for update", newValue);
-
-    let temporaryTodo = todos;
-    temporaryTodo.map((item, index) => {
-      if (item.id === todoId) {
+  const updateBookmark = (bookmarkId, newValue) => {
+    let temporaryBookmark = bookmarks;
+    temporaryBookmark.map((item, index) => {
+      if (item.id === bookmarkId) {
         item.text = newValue.text;
       }
     });
-    // setTodos(temporaryTodo);
-    setTodos((prev) =>
-      prev.map((item) => (item.id === todoId ? newValue : item))
+    setBookmarks((prev) =>
+      prev.map((item) => (item.id === bookmarkId ? newValue : item))
     );
-    console.log("updated todo", todos);
-    localStorage.setItem("bookmarks", JSON.stringify(temporaryTodo));
+    localStorage.setItem("bookmarks", JSON.stringify(temporaryBookmark));
   };
 
-  const removeTodo = (id) => {
-    const removedArr = [...todos].filter((todo) => todo.id !== id);
+  const removeBookmark = (id) => {
+    const removedArr = [...bookmarks].filter((bookmark) => bookmark.id !== id);
 
-    setTodos(removedArr);
-    console.log("removedArr", removedArr);
+    setBookmarks(removedArr);
     localStorage.setItem("bookmarks", JSON.stringify(removedArr));
   };
 
-  //   React.useEffect(() => {
-  //     const loadBookmarks = localStorage.getItem("bookmarks")
-  //       ? JSON.parse(localStorage.getItem("bookmarks") || "{}")
-  //       : [];
-  //     console.log("loadbookmarks", loadBookmarks);
-  //     localStorage.setItem("bookmarks", JSON.stringify(todos));
-  //   }, [todos]);
-
   return (
     <>
-      <h1>What's the Plan for Today?</h1>
-      <BookMarkForm onSubmit={addTodo} />
-      <BookMark todos={todos} removeTodo={removeTodo} updateTodo={updateTodo} />
+      <h1>Your Favourites URL's here</h1>
+      <BookMarkForm onSubmit={addBookmark} />
+      <BookMark
+        bookmarks={bookmarks}
+        removeBookmark={removeBookmark}
+        updateBookmark={updateBookmark}
+      />
     </>
   );
 }

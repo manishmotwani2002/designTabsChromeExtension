@@ -1,16 +1,15 @@
 import React from "react";
 import BookMarkForm from "./BookMarkForm";
 
-const BookMark = ({ todos, removeTodo, updateTodo }) => {
-  const [bookmarkList, setBookmarkList] = React.useState(todos);
+const BookMark = ({ bookmarks, removeBookmark, updateBookmark }) => {
+  const [bookmarkList, setBookmarkList] = React.useState(bookmarks);
 
   React.useEffect(() => {
     const preloadBookmarks = localStorage.getItem("bookmarks")
       ? JSON.parse(localStorage.getItem("bookmarks") || "{}")
       : [];
-    console.log("preloadbookmarks", preloadBookmarks);
     setBookmarkList(preloadBookmarks);
-  }, [todos]);
+  }, [bookmarks]);
 
   const [edit, setEdit] = React.useState({
     id: null,
@@ -18,7 +17,7 @@ const BookMark = ({ todos, removeTodo, updateTodo }) => {
   });
 
   const submitUpdate = (value) => {
-    updateTodo(edit.id, value);
+    updateBookmark(edit.id, value);
     setEdit({
       id: null,
       value: "",
@@ -29,13 +28,17 @@ const BookMark = ({ todos, removeTodo, updateTodo }) => {
     return <BookMarkForm edit={edit} onSubmit={submitUpdate} />;
   }
 
-  return bookmarkList.map((todo, index) => (
+  return bookmarkList.map((bookmark, index) => (
     <div key={index}>
-      <div key={todo.id}>{todo.text}</div>
+      <div key={bookmark.id}>{bookmark.text}</div>
       <div>
-        <button onClick={() => removeTodo(todo.id)}>Remove Todo</button>
+        <button onClick={() => removeBookmark(bookmark.id)}>
+          Remove Tobookmarkdo
+        </button>
 
-        <button onClick={() => setEdit({ id: todo.id, value: todo.text })}>
+        <button
+          onClick={() => setEdit({ id: bookmark.id, value: bookmark.text })}
+        >
           Edit
         </button>
       </div>

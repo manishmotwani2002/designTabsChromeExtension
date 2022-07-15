@@ -18,7 +18,7 @@ function BookMarkForm(props) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="todo-form">
+    <form onSubmit={handleSubmit}>
       {props.edit ? (
         <>
           <input
@@ -26,20 +26,16 @@ function BookMarkForm(props) {
             value={input}
             onChange={handleChange}
           />
-          <button onClick={handleSubmit} className="todo-button edit">
-            Update
-          </button>
+          <button onClick={handleSubmit}>Update</button>
         </>
       ) : (
         <>
           <input
-            placeholder="Add a todo"
+            placeholder="Add a bookmark"
             value={input}
             onChange={handleChange}
           />
-          <button onClick={handleSubmit} className="todo-button">
-            Add todo
-          </button>
+          <button onClick={handleSubmit}>Add Bookmark</button>
         </>
       )}
     </form>

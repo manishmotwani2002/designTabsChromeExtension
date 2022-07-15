@@ -45,6 +45,7 @@ function Base() {
         <div>
           <Todos />
         </div> */}
+      <Todos />
     </div>
   );
 }

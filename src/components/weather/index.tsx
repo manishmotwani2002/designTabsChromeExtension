@@ -12,8 +12,6 @@ function Weather() {
   React.useEffect(async () => {
     const response = await getWeather();
 
-    console.log("weather response", response);
-
     setWeather({
       ...weather,
       temperature: response.current.temp_c,
