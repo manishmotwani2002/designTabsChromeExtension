@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TodoForm from "./TodoForm";
+import "./todo.css";
 
 const Todo = ({ todos, removeTodo, updateTodo }) => {
   const [todoList, setTodoList] = React.useState(todos);
@@ -29,12 +30,17 @@ const Todo = ({ todos, removeTodo, updateTodo }) => {
   }
 
   return todoList.map((todo, index) => (
-    <div key={index}>
+    <div key={index} className="todo_item">
       <div key={todo.id}>{todo.text}</div>
       <div>
-        <button onClick={() => removeTodo(todo.id)}>Remove Todo</button>
+        <button className="btn" onClick={() => removeTodo(todo.id)}>
+          Remove
+        </button>
 
-        <button onClick={() => setEdit({ id: todo.id, value: todo.text })}>
+        <button
+          className="btn"
+          onClick={() => setEdit({ id: todo.id, value: todo.text })}
+        >
           Edit
         </button>
       </div>

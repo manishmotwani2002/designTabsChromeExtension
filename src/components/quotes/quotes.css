@@ -1,0 +1,14 @@
+.quote-root {
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+  text-align: center;
+  font-size: large;
+}
+
+.quote-subdiv {
+  max-width: 50%;
+  margin: auto;
+
+  align-items: center;
+}

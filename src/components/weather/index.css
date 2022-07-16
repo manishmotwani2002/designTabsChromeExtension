@@ -1,0 +1,22 @@
+.weather-root {
+  background-color: gainsboro;
+  display: flex;
+  flex-direction: column;
+  border-color: #fff;
+  border-width: 1rem;
+  font-size: xx-large;
+  display: inline-block;
+  border-radius: 2%;
+  border-style: solid;
+}
+
+.weather-sub-container {
+  display: flex;
+  margin: 1%;
+}
+
+.temperature {
+  font-size: xx-large;
+  font-weight: bolder;
+  color: red;
+}

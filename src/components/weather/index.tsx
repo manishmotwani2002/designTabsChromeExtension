@@ -1,4 +1,5 @@
 import React from "react";
+import "./index.css";
 import { getWeather } from "../../utils/weather/apicall";
 function Weather() {
   const [weather, setWeather] = React.useState({
@@ -24,14 +25,22 @@ function Weather() {
 
   getWeather;
   return (
-    <div>
-      <div>{weather.temperature}</div>
-      <div>{weather.condition}</div>
-      <div>
-        <img src={`https:` + weather.conditionIcon} alt="Weather Icon" />
+    <div className="weather-root">
+      <div className="weather-sub-container">
+        <div>{weather.condition}</div>
+        <div>
+          <img src={`https:` + weather.conditionIcon} alt="Weather Icon" />
+        </div>
       </div>
-      <div>{weather.city}</div>
-      <div>{weather.country}</div>
+
+      <div className="weather-sub-container temperature">
+        {weather.temperature}
+      </div>
+
+      <div className="weather-sub-container">
+        <div>{weather.city},</div>
+        <div>{weather.country}</div>
+      </div>
     </div>
   );
 }

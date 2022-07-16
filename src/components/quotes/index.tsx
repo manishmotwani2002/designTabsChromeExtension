@@ -1,5 +1,6 @@
 import React from "react";
 import { getQuotes } from "../../utils/quotes/apicall";
+import "./quotes.css";
 
 function Quote() {
   const defaultQuote =
@@ -21,9 +22,11 @@ function Quote() {
   }, []);
 
   return (
-    <div>
-      <div>{randomQuote.quote}</div>
-      <p>{randomQuote.author}</p>
+    <div className="quote-root">
+      <div className="quote-subdiv">
+        <div>{randomQuote.quote}</div>
+        <p>{`- ${randomQuote.author}`}</p>
+      </div>
     </div>
   );
 }
