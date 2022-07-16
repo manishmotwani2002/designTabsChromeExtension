@@ -10,11 +10,22 @@ function Base() {
   const defaultImage = "";
 
   const [backgroundImage, setBackgroundImage] = React.useState(defaultImage);
+  const [vision, setVision] = React.useState(
+    localStorage.getItem("vision") ? localStorage.getItem("vision") || "{}" : []
+  );
 
   React.useEffect(async () => {
     const response = await getBackground();
     setBackgroundImage(response.urls.full);
   }, []);
+
+  const handleChange = (e) => {
+    setVision(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    localStorage.setItem("vision", vision);
+  };
 
   return (
     <div
@@ -34,22 +45,36 @@ function Base() {
         <div>
           <h1>Your Short Term Goals</h1>
           <div className="goal-section">
-            <input className="goal-input" placeholder="enter your goal here" />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-2 w-2 submit-arrow"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
+            <input
+              className="goal-input"
+              placeholder="enter your goal here"
+              onChange={(e) => {
+                handleChange(e);
+              }}
+            />
+            <div
+              onClick={() => {
+                handleSubmit();
+              }}
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              />
-            </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-2 w-2 submit-arrow"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            </div>
           </div>
+
+          <div>{vision}</div>
         </div>
       </div>
 
