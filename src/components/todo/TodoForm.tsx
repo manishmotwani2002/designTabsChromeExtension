@@ -52,7 +52,7 @@ function TodoForm(props) {
             placeholder="Add a todo"
             value={input}
             onChange={handleChange}
-            className="todo-input"
+            className="input"
           />
           <div onClick={handleSubmit} className="">
             <svg

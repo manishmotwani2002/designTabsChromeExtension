@@ -1,6 +1,6 @@
-.todo-container {
+.bookmark_container {
   position: fixed;
-  bottom: 0;
+  top: 0;
   right: 0;
   max-width: 30%;
   padding: 1rem;
@@ -12,7 +12,34 @@
   font-size: medium;
   text-align: center;
 }
-.todo-input {
+
+.arrow {
+  height: 40px;
+  width: 40px;
+}
+
+.bookmark_item {
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 0 20px;
+  color: #f3f9fc;
+  background-color: gray;
+  font-size: medium;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.15);
+  background-color: #328f8a;
+}
+
+input {
   font-family: inherit;
   width: 100%;
   border: 0;
@@ -24,33 +51,4 @@
   background: transparent;
   transition: border-color 0.2s;
   text-align: center;
-}
-
-.arrow {
-  height: 40px;
-  width: 40px;
-}
-
-.todo_item {
-  margin: 2rem;
-  display: flex;
-  gap: 6px;
-  justify-content: space-between;
-  align-items: center;
-  font-size: medium;
-}
-
-.btn {
-  padding: 10px 20px;
-  margin: 0 10px;
-  color: #f3f9fc;
-  background-color: gray;
-  font-size: medium;
-  border: none;
-  border-radius: 5px;
-}
-
-button:hover {
-  box-shadow: 5px 5px rgba(0, 0, 0, 0.15);
-  background-color: #328f8a;
 }

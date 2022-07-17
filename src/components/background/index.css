@@ -1,6 +1,7 @@
 body {
   color: #fff;
-  font-size: x-large;
+  font-family: Helvetica, Arial, sans-serif;
+  /* font-size: x-large; */
 }
 
 .bg {
@@ -16,14 +17,14 @@ body {
   width: 100%;
   margin: auto;
   flex-direction: column;
-
+  font-size: xx-large;
   justify-content: center;
   height: 100vh;
   align-items: center;
   color: "#fff";
 }
 
-.goal-input {
+.input {
   font-family: inherit;
   width: 100%;
   border: 0;

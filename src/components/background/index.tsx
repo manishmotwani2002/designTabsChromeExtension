@@ -5,6 +5,7 @@ import Quote from "../quotes";
 import Weather from "../weather";
 import Todos from "../todo";
 import BookmarksList from "../bookmark";
+import SearchBar from "../search";
 
 function Base() {
   const defaultImage = "";
@@ -46,7 +47,7 @@ function Base() {
           <h1>Your Short Term Goals</h1>
           <div className="goal-section">
             <input
-              className="goal-input"
+              className="input"
               placeholder="enter your goal here"
               onChange={(e) => {
                 handleChange(e);
@@ -73,8 +74,11 @@ function Base() {
               </svg>
             </div>
           </div>
-
-          <div>{vision}</div>
+          <center>
+            <div style={{ marginTop: "5%", fontSize: "xx-large" }}>
+              Your Goal: {vision}
+            </div>
+          </center>
         </div>
       </div>
 
@@ -87,6 +91,12 @@ function Base() {
 
       <div>
         <Todos />
+      </div>
+      <div>
+        <BookmarksList />
+      </div>
+      <div>
+        <SearchBar />
       </div>
     </div>
   );

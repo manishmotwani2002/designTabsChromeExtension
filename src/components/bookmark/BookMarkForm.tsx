@@ -20,23 +20,55 @@ function BookMarkForm(props) {
   return (
     <form onSubmit={handleSubmit}>
       {props.edit ? (
-        <>
+        <div style={{ display: "flex" }}>
           <input
             placeholder="Update your item"
             value={input}
             onChange={handleChange}
+            className="input"
           />
-          <button onClick={handleSubmit}>Update</button>
-        </>
+          <div onClick={handleSubmit} className="">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="arrow"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+              />
+            </svg>
+          </div>
+        </div>
       ) : (
-        <>
+        <div style={{ display: "flex" }}>
           <input
             placeholder="Add a bookmark"
             value={input}
             onChange={handleChange}
           />
-          <button onClick={handleSubmit}>Add Bookmark</button>
-        </>
+
+          <div onClick={handleSubmit} className="">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="arrow"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+              />
+            </svg>
+          </div>
+        </div>
       )}
     </form>
   );

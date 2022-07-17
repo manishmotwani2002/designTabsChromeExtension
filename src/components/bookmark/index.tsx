@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import BookMark from "./BookMark";
 import BookMarkForm from "./BookMarkForm";
+import "./index.css";
 
 function BookmarksList() {
   const [bookmarks, setBookmarks] = useState(
@@ -43,15 +44,15 @@ function BookmarksList() {
   };
 
   return (
-    <>
-      <h1>Your Favourites URL's here</h1>
+    <div className="bookmark_container">
+      <h1>Your Bookmarks</h1>
       <BookMarkForm onSubmit={addBookmark} />
       <BookMark
         bookmarks={bookmarks}
         removeBookmark={removeBookmark}
         updateBookmark={updateBookmark}
       />
-    </>
+    </div>
   );
 }
 

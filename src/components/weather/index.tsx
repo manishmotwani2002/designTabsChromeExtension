@@ -33,13 +33,11 @@ function Weather() {
         </div>
       </div>
 
-      <div className="weather-sub-container temperature">
-        {weather.temperature}
-      </div>
-
-      <div className="weather-sub-container">
-        <div>{weather.city},</div>
-        <div>{weather.country}</div>
+      <div className="">
+        <div className=" temperature">{weather.temperature}&deg;C</div>
+        <div>
+          {weather.city}, {weather.country}
+        </div>
       </div>
     </div>
   );
