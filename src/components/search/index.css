@@ -34,7 +34,9 @@
 }
 
 .search-icon {
-  height: 60px;
-  width: 60px;
-  margin-right: 10px;
+  height: 40px;
+  width: 40px;
+  margin-right: 16px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
