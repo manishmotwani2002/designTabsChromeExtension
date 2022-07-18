@@ -37,11 +37,20 @@ function Base() {
     >
       <div className="central-container">
         <div className="time">
-          {new Date().getHours()}:{new Date().getMinutes()}
+          {new Date().getHours() % 10 == new Date().getHours()
+            ? "0" + new Date().getHours()
+            : new Date().getHours()}
+          :
+          {new Date().getMinutes() % 10 == new Date().getMinutes()
+            ? "0" + new Date().getMinutes()
+            : new Date().getMinutes()}
         </div>
         <div className="date">
-          Date: {new Date().getDate()}/{new Date().getMonth()}/
-          {new Date().getFullYear()}
+          {new Date().getDate()}/
+          {new Date().getMonth() % 10 == new Date().getMonth()
+            ? "0" + new Date().getMonth()
+            : new Date().getMonth()}
+          /{new Date().getFullYear()}
         </div>
         <div>
           <h1>Your Short Term Goals</h1>
@@ -76,7 +85,7 @@ function Base() {
           </div>
           <center>
             <div style={{ marginTop: "5%", fontSize: "xx-large" }}>
-              Your Goal: {vision}
+              {vision}
             </div>
           </center>
         </div>
