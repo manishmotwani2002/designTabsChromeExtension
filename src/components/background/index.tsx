@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useState, useEffect } from "react";
 import "./index.css";
 import { getBackground } from "../../utils/background/apicall";
 import Quote from "../quotes";
@@ -10,15 +10,28 @@ import SearchBar from "../search";
 function Base() {
   const defaultImage = "";
 
-  const [backgroundImage, setBackgroundImage] = React.useState(defaultImage);
-  const [vision, setVision] = React.useState(
+  const [backgroundImage, setBackgroundImage] = useState(defaultImage);
+  const [vision, setVision] = useState(
     localStorage.getItem("vision") ? localStorage.getItem("vision") || "{}" : []
   );
+  const [time, setTime] = useState(
+    new Date().getHours() % 10 == new Date().getHours()
+      ? "0" + new Date().getHours()
+      : new Date().getHours()
+  );
 
-  React.useEffect(async () => {
+  useEffect(async () => {
     const response = await getBackground();
     setBackgroundImage(response.urls.full);
   }, []);
+
+  setTimeout(() => {
+    setTime(
+      new Date().getHours() % 10 == new Date().getHours()
+        ? "0" + new Date().getHours()
+        : new Date().getHours()
+    );
+  }, 1000);
 
   const handleChange = (e) => {
     setVision(e.target.value);
@@ -37,10 +50,7 @@ function Base() {
     >
       <div className="central-container">
         <div className="time">
-          {new Date().getHours() % 10 == new Date().getHours()
-            ? "0" + new Date().getHours()
-            : new Date().getHours()}
-          :
+          {time}:
           {new Date().getMinutes() % 10 == new Date().getMinutes()
             ? "0" + new Date().getMinutes()
             : new Date().getMinutes()}
