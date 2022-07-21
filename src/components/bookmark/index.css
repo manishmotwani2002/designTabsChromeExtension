@@ -11,6 +11,8 @@
   border-radius: 6%;
   font-size: medium;
   text-align: center;
+  max-height: 30%;
+  overflow-y: scroll;
 }
 
 .arrow {
@@ -22,6 +24,8 @@
   margin: 20px;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 button {
