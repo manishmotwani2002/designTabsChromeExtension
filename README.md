@@ -1,3 +1,9 @@
+# Project Screenshot
+![New Tab](https://github.com/manishmotwani2002/designTabsChromeExtension/blob/main/src/assets/newTabScreenshot.png)
+
+# Setup the project
+To setup the project - Load the Dist folder in the chrome extensions bar and enable the extension for the usage.
+
 # React with Bun runtime
 
 This is a React project bootstrapped with [bun](https://bun.sh/).
